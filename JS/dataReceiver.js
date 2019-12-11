@@ -22,11 +22,6 @@ const userFinder = async username => {
     );
     const repos = await userRepos.json();
 
-    // const data = {
-    //   user,
-    //   repos
-    // };
-    // console.log(data);
     userData(user);
     reposData(repos);
   } else {

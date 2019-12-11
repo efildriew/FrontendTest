@@ -21,17 +21,18 @@ const reposData = data => {
   data.forEach(repo => {
     console.log(repo);
     const repoContainer = document.createElement("div");
+    const separationLine = document.createElement("hr");
     repoContainer.className = "repo-info";
     repoContainer.innerHTML = `
-      <p>${repo.name}</p>
+      <p class="repo-name">${repo.name}</p>
       <div class="stars-and-forks">
         <p>⭐</p>
         <p>${repo.stargazers_count}</p>
         <p>🍴</p>
         <p>${repo.forks_count}</p>
-      <div>
-      <hr>
+      </div>
     `;
     reposInfo.appendChild(repoContainer);
+    reposInfo.appendChild(separationLine);
   });
 };
