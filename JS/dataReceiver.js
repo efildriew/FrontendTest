@@ -22,19 +22,21 @@ const userFinder = async username => {
     );
     const repos = await userRepos.json();
 
-    const data = {
-      user,
-      repos
-    };
-    console.log(data);
+    // const data = {
+    //   user,
+    //   repos
+    // };
+    // console.log(data);
+    userData(user);
+    reposData(repos);
   } else {
     if (document.querySelector(".error-div")) {
       errorDiv.remove();
     }
-    const container = document.querySelector("#search-container");
+    const searchContainer = document.querySelector("#search-container");
     const errorDiv = document.createElement("div");
     errorDiv.className = "error-div";
     errorDiv.innerHTML = `<p>${username} does not exist!`;
-    container.appendChild(errorDiv);
+    searchContainer.appendChild(errorDiv);
   }
 };

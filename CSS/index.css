@@ -2,15 +2,14 @@ body {
   background-color: lightgray;
   display: flex;
   justify-content: center;
-  width: 100%;
   font-family: sans-serif;
+  margin-top: 40px;
+  width: 100%;
 }
 
 .container {
   background-color: white;
   border-radius: 4px;
-  display: flex;
-  justify-content: center;
   padding: 20px;
   width: 50%;
   box-shadow: 10px 10px 20px grey;
@@ -42,4 +41,31 @@ body {
   margin-top: 10px;
   border-radius: 4px;
   text-align: center;
+}
+
+#data-container {
+  margin-top: 20px;
+}
+
+#user-info {
+  display: flex;
+}
+
+.avatar {
+  width: 150px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 20px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.strong-separation {
+  background-color: black;
 }
