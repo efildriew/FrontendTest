@@ -25,13 +25,17 @@ const userFinder = async username => {
     userData(user);
     reposData(repos);
   } else {
-    if (document.querySelector(".error-div")) {
-      errorDiv.remove();
-    }
-    const searchContainer = document.querySelector("#search-container");
+    // if (document.querySelector(".error-div")) {
+    //   errorDiv.remove();
+    // }
+    const searchContainer = document.querySelector(".container");
+    // console.log(searchContainer);
     const errorDiv = document.createElement("div");
     errorDiv.className = "error-div";
     errorDiv.innerHTML = `<p>${username} does not exist!`;
     searchContainer.appendChild(errorDiv);
+    setTimeout(() => {
+      errorDiv.remove();
+    }, 3000);
   }
 };
