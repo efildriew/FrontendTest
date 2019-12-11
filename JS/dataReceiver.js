@@ -3,7 +3,6 @@ const searchButton = document.querySelector("#search-button");
 
 searchButton.addEventListener("click", e => {
   const user = searchInput.value;
-  console.log(user);
   userFinder(user);
 });
 
@@ -16,16 +15,12 @@ searchInput.addEventListener("keypress", e => {
 const userFinder = async username => {
   const response = await fetch(`https://api.github.com/users/${username}`);
   const user = await response.json();
-  console.log(response);
-  console.log(user);
 
   if (response.status === 200) {
     const userRepos = await fetch(
       `https://api.github.com/users/${username}/repos`
     );
-    console.log(userRepos);
     const repos = await userRepos.json();
-    console.log(repos);
 
     const data = {
       user,
@@ -33,6 +28,13 @@ const userFinder = async username => {
     };
     console.log(data);
   } else {
-    console.log("error");
+    if (document.querySelector(".error-div")) {
+      errorDiv.remove();
+    }
+    const container = document.querySelector("#search-container");
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "error-div";
+    errorDiv.innerHTML = `<p>${username} does not exist!`;
+    container.appendChild(errorDiv);
   }
 };
